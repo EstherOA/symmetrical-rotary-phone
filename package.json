@@ -1,8 +1,9 @@
 {
   "name": "validataur",
   "version": "1.0.0",
-  "description": "A super cool validation library!",
+  "description": "A super cool JS validation library!",
   "main": "src/index.js",
+  "type": "module",
   "devDependencies": {
     "@tsconfig/node16": "^1.0.2",
     "@types/jest": "^27.4.1",
@@ -10,11 +11,14 @@
     "@typescript-eslint/eslint-plugin": "^5.14.0",
     "@typescript-eslint/parser": "^5.14.0",
     "eslint": "^8.10.0",
+    "eslint-config-prettier": "^8.5.0",
+    "prettier": "^2.6.0",
     "typescript": "^4.6.2"
   },
   "scripts": {
     "test": "mocha",
-    "lint": "eslint . --fix"
+    "lint": "eslint . --fix",
+    "start": "node src/index.js"
   },
   "repository": {
     "type": "git",

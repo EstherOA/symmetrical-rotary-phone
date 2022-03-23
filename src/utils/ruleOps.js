@@ -5,7 +5,7 @@ const isEmpty = (value) => {
 
 //value is not null or undefined or NaN
 const exists = (value) => {
-    return Number.isNaN(value) || value !== undefined || value !== null;
+    return !Number.isNaN(value) && value !== undefined && value !== null;
 }
 
 //string value/array is less than/equal to specified length
@@ -35,7 +35,7 @@ const isAlpha = (value) => {
 
 //is strictly alphabetic string (cannot contain special chars)
 const isAlphaStrict = (value) => {
-    return String(value) && matchAlphabetRegex(value); // regex does not contain numbers or special chars
+    return String(value) && matchAlphabetRegex(value); //TODO: regex does not contain numbers or special chars
 }
 
 const isNumeric = (value) => {
@@ -54,7 +54,7 @@ const isDecimal = (value) => {
 
 
 const isEmail = (value) => {
-    
+    return exists(value) && matchEmailRegex(value);
 }
 
 const matchRegex = (value, regex) => {
@@ -99,3 +99,8 @@ const matchNumericRegex = (text) => {
     const numericRegex = /^\d+$/;
     return numericRegex.test(text);
 }
+
+export {isAlpha, isAlphaStrict, isDate, inArray, isDateAfter, 
+    isDateBefore, isDecimal, isEmail, isEmpty, isInteger, 
+    isNumeric, notInArray, matchRegex, exists, minLength,
+    minNumber, maxLength, maxNumber};
